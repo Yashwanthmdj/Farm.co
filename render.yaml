@@ -1,0 +1,35 @@
+# Render Blueprint (optional)
+# Docs: https://render.com/docs/blueprint-spec
+# You can still deploy via the Render dashboard using DEPLOY.md
+
+services:
+  - type: web
+    name: farmco-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: NVIDIA_API_KEY
+        sync: false
+      - key: NVIDIA_API_URL
+        value: https://integrate.api.nvidia.com/v1/chat/completions
+      - key: NVIDIA_MODEL
+        value: meta/llama-3.1-8b-instruct
+      - key: OPENWEATHER_API_KEY
+        sync: false
+      - key: FAST2SMS_API_KEY
+        sync: false
+      - key: PLANT_ID_API_KEY
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: API_RATE_LIMIT
+        value: "2000"
+      - key: NODE_VERSION
+        value: "20"

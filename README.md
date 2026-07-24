@@ -2,7 +2,8 @@
 
 A production-oriented Smart Agriculture Platform with AI chat, soil OCR, weather, crop prices, marketplace, analytics, and more.
 
-> **Quick start:** see [`HOW_TO_RUN.md`](./HOW_TO_RUN.md)
+> **Quick start:** see [`HOW_TO_RUN.md`](./HOW_TO_RUN.md)  
+> **Deploy publicly:** see [`DEPLOY.md`](./DEPLOY.md)
 
 A comprehensive farming management application with AI-powered multilingual chat assistance, expense tracking, tractor logs, reminder system, and **AI-powered soil health analysis**.
 

@@ -69,7 +69,24 @@ if (helmet) {
 }
 
 // Middleware
-app.use(cors());
+// CORS — allow configured frontend origin(s) in production
+const allowedOrigins = (process.env.CLIENT_URL || '')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow non-browser tools (no Origin) and local/dev when CLIENT_URL unset
+      if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error('Not allowed by CORS: ' + origin));
+    },
+    credentials: true,
+  })
+);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
