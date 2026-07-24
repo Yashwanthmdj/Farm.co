@@ -34,6 +34,7 @@ export default function Card({
         whileHover: hover
           ? { y: -5, boxShadow: 'var(--shadow-md)', borderColor: 'rgba(63,163,77,0.35)' }
           : undefined,
+        whileTap: hover ? { scale: 0.99 } : undefined,
       }
     : {};
 

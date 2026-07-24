@@ -84,7 +84,7 @@ export default function Analytics() {
         <p style={{ color: 'var(--muted)', fontSize: 13.5 }}>Monthly trends and category breakdowns from your financial data.</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 24 }}>
+      <div className="page-grid-sm" style={{ marginBottom: 24 }}>
         <StatCard label="Total Revenue" value={totalRevenue} color="var(--success)" />
         <StatCard label="Total Expenses" value={totalExpense} color="var(--error)" />
         <StatCard label="Avg. Monthly Profit" value={Math.round(avgMonthlyProfit)} color="var(--primary)" icon={TrendingUp} />

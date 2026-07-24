@@ -10,8 +10,6 @@ import {
   Store,
   ArrowRight,
   Bug,
-  LineChart,
-  Sparkles,
 } from 'lucide-react';
 import { LanguageSwitcher } from '../components/ui';
 import { useI18n } from '../context/I18nContext';
@@ -29,7 +27,7 @@ export default function Landing() {
   const { t } = useI18n();
 
   return (
-    <div style={{ minHeight: '100vh', overflowX: 'hidden' }} className="bg-farm-gradient landing-page">
+    <div style={{ minHeight: '100dvh', overflowX: 'hidden' }} className="bg-farm-gradient landing-page">
       <div className="landing-orb landing-orb-a" aria-hidden />
       <div className="landing-orb landing-orb-b" aria-hidden />
 
@@ -50,11 +48,11 @@ export default function Landing() {
           >
             <Sprout size={19} color="#fff" />
           </motion.div>
-          <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: 22 }}>
+          <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: 'clamp(20px, 5vw, 22px)' }}>
             Farm<span className="gradient-text">.co</span>
           </span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <LanguageSwitcher compact />
           <Link to="/login">
             <motion.span
@@ -74,12 +72,31 @@ export default function Landing() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
         >
-          <span className="landing-badge">
-            <Sparkles size={14} /> AI-Powered Agriculture
-          </span>
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              width: 72,
+              height: 72,
+              borderRadius: 22,
+              margin: '0 auto 22px',
+              background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: 'var(--shadow-glow)',
+            }}
+          >
+            <Sprout size={34} color="#fff" />
+          </motion.div>
+
           <h1 className="landing-title">
-            {t('landing_headline')}
+            Farm<span className="gradient-text">.co</span>
           </h1>
+          <p className="landing-sub" style={{ marginBottom: 10, fontSize: 'clamp(16px, 3vw, 20px)', color: 'var(--text)', fontWeight: 600 }}>
+            {t('landing_headline')}
+          </p>
           <p className="landing-sub">{t('landing_sub')}</p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/login">
@@ -95,7 +112,7 @@ export default function Landing() {
         </motion.div>
       </section>
 
-      <section className="container" style={{ padding: '20px 24px 90px' }}>
+      <section className="container" style={{ padding: '8px 16px 90px' }}>
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -126,7 +143,6 @@ export default function Landing() {
         </motion.div>
 
         <div style={{ textAlign: 'center', marginTop: 48, color: 'var(--muted)', fontSize: 13 }}>
-          <LineChart size={14} style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} />
           Farm.co — Smart Agriculture Platform
         </div>
       </section>

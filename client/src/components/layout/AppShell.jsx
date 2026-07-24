@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Sidebar from './Sidebar';
 import TopBar from './TopBar';
+import BottomNav from './BottomNav';
 import PageTransition from './PageTransition';
 import { useI18n } from '../../context/I18nContext';
 
@@ -31,24 +32,34 @@ export default function AppShell() {
   const { t } = useI18n();
   const segment = location.pathname.split('/')[2] || 'dashboard';
   const title = t(TITLE_KEYS[segment] || 'title_dashboard');
+  const isChat = segment === 'chat';
+
+  // Close drawer on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scroll when mobile drawer open
+  useEffect(() => {
+    if (!mobileOpen) return undefined;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen]);
 
   return (
-    <div className="bg-farm-gradient" style={{ display: 'flex', minHeight: '100vh' }}>
+    <div className="app-shell bg-farm-gradient">
       <a href="#main-content" className="skip-link">
         {t('skip_main')}
       </a>
       <Sidebar mobileOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
-      <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
+      <div className="app-shell__main">
         <TopBar title={title} onMenuClick={() => setMobileOpen((o) => !o)} />
         <main
           id="main-content"
-          style={{
-            flex: 1,
-            padding: 'clamp(16px, 3vw, 28px) clamp(14px, 3vw, 28px) 60px',
-            maxWidth: 1320,
-            width: '100%',
-            margin: '0 auto',
-          }}
+          className={`app-shell__content${isChat ? ' is-chat' : ''}`}
         >
           <AnimatePresence mode="wait">
             <PageTransition key={location.pathname}>
@@ -56,6 +67,7 @@ export default function AppShell() {
             </PageTransition>
           </AnimatePresence>
         </main>
+        <BottomNav onMoreClick={() => setMobileOpen(true)} />
       </div>
     </div>
   );

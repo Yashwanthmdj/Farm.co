@@ -96,7 +96,7 @@ export default function CropPrices() {
       {visibleCategories.map((cat) => (
         <div key={cat} style={{ marginBottom: 28 }}>
           <h3 style={{ fontSize: 15, marginBottom: 14, textTransform: 'capitalize' }}>{cat}</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: 16 }}>
+          <div className="page-grid-fill">
             {(data.categories[cat] || []).map((item, i) => (
               <motion.div key={item.name} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}>
                 <Card>

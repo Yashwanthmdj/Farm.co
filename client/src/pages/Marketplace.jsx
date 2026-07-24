@@ -70,7 +70,7 @@ export default function Marketplace() {
       ) : filtered.length === 0 ? (
         <EmptyState icon={Store} title="No products found" description="Try adjusting your search or filters." />
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))', gap: 20 }}>
+        <div className="page-grid-fill">
           {filtered.map((p, i) => (
             <motion.div key={p._id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: Math.min(i * 0.04, 0.4) }}>
               <Card padding={0} hover style={{ overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column' }}>

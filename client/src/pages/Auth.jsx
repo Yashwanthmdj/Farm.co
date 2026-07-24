@@ -78,13 +78,12 @@ export default function Auth() {
   };
 
   return (
-    <div className="bg-farm-gradient" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+    <div className="bg-farm-gradient" style={{ minHeight: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px 14px' }}>
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35 }}
-        className="glass"
-        style={{ width: '100%', maxWidth: 420, borderRadius: 'var(--radius-lg)', padding: 34, boxShadow: 'var(--shadow-lg)' }}
+        className="glass auth-card"
       >
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 28, justifyContent: 'center' }}>
           <div

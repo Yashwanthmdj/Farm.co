@@ -145,11 +145,7 @@ app.use('/audio', express.static(__dirname + '/public/audio'));
 
 app.use('/uploads/products', express.static(path.join(__dirname, 'uploads/products')));
 
-app.get('/', (req, res) => {
-  res.send('Farmer Assistant Backend Running');
-});
-
-// Add a health check endpoint
+// Health check (always available)
 app.get('/health', (req, res) => {
   const dbStatus = mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected';
   res.json({
@@ -160,9 +156,26 @@ app.get('/health', (req, res) => {
 });
 
 // 404 handler for unmatched API routes
-app.use('/api', (req, res, next) => {
+app.use('/api', (req, res) => {
   res.status(404).json({ error: `Not found: ${req.method} ${req.originalUrl}` });
 });
+
+// Serve React build when present (single-URL deploy / ngrok / Render)
+const clientBuildPath = path.join(__dirname, '../client/build');
+if (fs.existsSync(clientBuildPath)) {
+  app.use(express.static(clientBuildPath));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api') || req.path.startsWith('/uploads') || req.path.startsWith('/audio')) {
+      return next();
+    }
+    res.sendFile(path.join(clientBuildPath, 'index.html'));
+  });
+  console.log('📦 Serving React app from client/build');
+} else {
+  app.get('/', (req, res) => {
+    res.send('Farm.co Backend Running — build the client (cd client && npm run build) to serve the UI from this server.');
+  });
+}
 
 // Global error handler - catches any errors passed via next(err) or thrown
 // synchronously inside route handlers, so the process never crashes and

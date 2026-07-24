@@ -38,6 +38,9 @@
 
   --sidebar-width: 268px;
   --topbar-height: 68px;
+  --bottom-nav-height: 0px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
   --transition-fast: 150ms ease;
   --transition-base: 240ms cubic-bezier(0.4, 0, 0.2, 1);
 }

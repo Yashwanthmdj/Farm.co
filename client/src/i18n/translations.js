@@ -16,6 +16,7 @@ const en = {
   nav_analytics: 'Analytics',
   nav_profile: 'Profile',
   nav_settings: 'Settings',
+  nav_more: 'More',
   // Titles
   title_dashboard: 'Dashboard',
   title_chat: 'AI Chat',
@@ -126,6 +127,7 @@ const hi = {
   nav_analytics: 'विश्लेषण',
   nav_profile: 'प्रोफ़ाइल',
   nav_settings: 'सेटिंग्स',
+  nav_more: 'और',
   title_dashboard: 'डैशबोर्ड',
   title_chat: 'एआई चैट',
   title_expenses: 'खर्चे',
@@ -229,6 +231,7 @@ const te = {
   nav_analytics: 'విశ్లేషణ',
   nav_profile: 'ప్రొఫైల్',
   nav_settings: 'సెట్టింగ్‌లు',
+  nav_more: 'మరిన్ని',
   title_dashboard: 'డాష్‌బోర్డ్',
   title_chat: 'AI చాట్',
   title_expenses: 'ఖర్చులు',

@@ -25,6 +25,9 @@
     "dev": "nodemon index.js",
     "test-sms": "node test-sms.js"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "devDependencies": {
     "nodemon": "^2.0.22"
   }

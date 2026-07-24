@@ -113,7 +113,7 @@ export default function Dashboard() {
       </motion.div>
 
       {/* Quick actions */}
-      <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 28 }}>
+      <div className="quick-actions-row">
         {QUICK_ACTION_DEFS.map((qa, i) => (
           <motion.div
             key={qa.to}
@@ -121,20 +121,7 @@ export default function Dashboard() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: i * 0.05 }}
           >
-            <Link
-              to={qa.to}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 8,
-                padding: '10px 16px',
-                borderRadius: 'var(--radius-full)',
-                background: 'var(--card)',
-                border: '1px solid var(--border)',
-                fontSize: 13.5,
-                fontWeight: 600,
-              }}
-            >
+            <Link to={qa.to} className="quick-action-chip">
               <qa.icon size={15} style={{ color: 'var(--primary)' }} />
               {t(qa.labelKey)}
             </Link>
@@ -146,7 +133,7 @@ export default function Dashboard() {
         variants={container}
         initial="hidden"
         animate="show"
-        style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 20 }}
+        className="page-grid"
       >
         {/* Weather shortcut */}
         <motion.div variants={item}>

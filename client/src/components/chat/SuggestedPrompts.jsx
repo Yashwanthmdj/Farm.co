@@ -11,12 +11,8 @@ const DEFAULT_PROMPTS = [
 export default function SuggestedPrompts({ prompts = DEFAULT_PROMPTS, onSelect }) {
   return (
     <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-        gap: 10,
-        marginTop: 10,
-      }}
+      className="page-grid"
+      style={{ gap: 10, marginTop: 10 }}
     >
       {prompts.map((prompt, i) => (
         <motion.button

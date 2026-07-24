@@ -1,7 +1,14 @@
 import axios from 'axios';
 
+// Empty string = same-origin (when UI is served by Express).
+// Unset in development → local backend on 5001.
+const rawApiUrl = process.env.REACT_APP_API_URL;
 export const API_BASE =
-  process.env.REACT_APP_API_URL || 'http://localhost:5000';
+  rawApiUrl !== undefined
+    ? rawApiUrl
+    : process.env.NODE_ENV === 'production'
+      ? ''
+      : 'http://localhost:5001';
 
 const client = axios.create({
   baseURL: API_BASE,

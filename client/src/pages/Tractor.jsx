@@ -72,7 +72,7 @@ export default function Tractor() {
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 24 }}>
+      <div className="page-grid-sm" style={{ marginBottom: 24 }}>
         <StatCard icon={Clock} label="Total Hours" value={totals.hours.toFixed(1)} />
         <StatCard icon={Fuel} label="Total Fuel Used (L)" value={totals.fuel.toFixed(1)} />
         <StatCard icon={TractorIcon} label="Total Logs" value={logs.length} />
@@ -122,7 +122,7 @@ export default function Tractor() {
           ) : logs.length === 0 ? (
             <EmptyState icon={TractorIcon} title="No tractor logs yet" description="Add your first log to start tracking usage." />
           ) : (
-            <div style={{ overflowX: 'auto' }}>
+            <div className="table-scroll">
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13.5 }}>
                 <thead>
                   <tr style={{ textAlign: 'left', color: 'var(--muted)', borderBottom: '1px solid var(--border)' }}>

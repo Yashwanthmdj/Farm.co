@@ -115,7 +115,7 @@ export default function Expenses() {
     <div>
       <PageHeading />
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 16, marginBottom: 24 }}>
+      <div className="page-grid-sm" style={{ marginBottom: 24 }}>
         <SummaryCard icon={TrendingUp} label="Total Revenue" value={totalRevenue} color="var(--success)" />
         <SummaryCard icon={TrendingDown} label="Total Expenses" value={totalExpense} color="var(--error)" />
         <SummaryCard

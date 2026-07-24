@@ -1,6 +1,6 @@
 {
-  "short_name": "Farmer Assistant",
-  "name": "Farmer Assistant - Farming Management App",
+  "short_name": "Farm.co",
+  "name": "Farm.co – AI Farmers Assistant",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,6 +10,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-} 
+  "orientation": "portrait-primary",
+  "theme_color": "#0B1220",
+  "background_color": "#0B1220"
+}
