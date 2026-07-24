@@ -1,0 +1,79 @@
+/* ==========================================================================
+   Farm.co Design Tokens
+   ========================================================================== */
+
+:root {
+  --primary: #3fa34d;
+  --primary-rgb: 63, 163, 77;
+  --secondary: #5bc76b;
+  --accent: #a7f3d0;
+
+  --bg: #0b1220;
+  --surface: #161f2f;
+  --card: #1e293b;
+  --border: rgba(255, 255, 255, 0.08);
+
+  --text: #ffffff;
+  --muted: #94a3b8;
+
+  --success: #22c55e;
+  --warning: #facc15;
+  --error: #ef4444;
+
+  --font-heading: 'Sora', 'DM Sans', system-ui, sans-serif;
+  --font-body: 'Source Sans 3', 'Instrument Sans', system-ui, sans-serif;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-full: 999px;
+
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.28);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.38);
+  --shadow-lg: 0 24px 56px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 0 1px rgba(63, 163, 77, 0.28), 0 10px 40px rgba(63, 163, 77, 0.22);
+
+  --glass-bg: rgba(30, 41, 59, 0.58);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  --sidebar-width: 268px;
+  --topbar-height: 68px;
+  --transition-fast: 150ms ease;
+  --transition-base: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme='light'] {
+  --bg: #f3f7f4;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --border: rgba(15, 23, 42, 0.08);
+  --text: #0f172a;
+  --muted: #5b6b7a;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 2px 10px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 12px 32px rgba(15, 23, 42, 0.09);
+  --shadow-lg: 0 24px 56px rgba(15, 23, 42, 0.12);
+}
+
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-farm-gradient {
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(63, 163, 77, 0.28), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(91, 199, 107, 0.16), transparent 45%),
+    radial-gradient(ellipse 50% 30% at 50% 100%, rgba(63, 163, 77, 0.08), transparent 50%),
+    var(--bg);
+}

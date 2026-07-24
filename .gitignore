@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+server/google-cloud.json
+google-cloud.json
+**/credentials*.json
+**/service-account*.json
+
+# Logs & OS
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Builds
+build/
+dist/
+client/build/
+coverage/
+
+# Uploads (keep folder placeholders)
+uploads/**
+!uploads/**/.gitkeep
+server/uploads/**
+!server/uploads/**/.gitkeep
+server/public/audio/**
+!server/public/audio/.gitkeep
+
+# IDE / local
+.idea/
+.vscode/
+*.swp
+.cursor/
+
+# Legacy monolith backups (optional large files still tracked if needed)
+# App.legacy.* can stay in repo for reference
